@@ -4996,16 +4996,17 @@
 									"model": {
 										"$ref": "AAAAAAGOpnO0YgpZje0="
 									},
-									"visible": false,
 									"font": "Arial;13;0",
-									"left": 462,
-									"top": 190,
+									"left": 472,
+									"top": 200,
+									"width": 5.05908203125,
 									"height": 13,
-									"alpha": 0.5235987755982988,
-									"distance": 25,
+									"alpha": 1.1396579909624123,
+									"distance": 15.264337522473747,
 									"hostEdge": {
 										"$ref": "AAAAAAGOpnO0YwpbArM="
-									}
+									},
+									"text": "*"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -6331,7 +6332,8 @@
 								},
 								"reference": {
 									"$ref": "AAAAAAGOpOBoyXrrCpI="
-								}
+								},
+								"multiplicity": "*"
 							}
 						}
 					],
