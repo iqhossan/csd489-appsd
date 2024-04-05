@@ -1346,7 +1346,7 @@
 											"top": 87,
 											"width": 103,
 											"height": 13,
-											"text": "Branch"
+											"text": "Surgery"
 										},
 										{
 											"_type": "LabelView",
@@ -2832,9 +2832,9 @@
 										"$ref": "AAAAAAGOpYEZg9Y66fY="
 									},
 									"font": "Arial;13;0",
-									"left": 818,
+									"left": 817,
 									"top": 163,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.9243922796094024,
 									"distance": 17.4928556845359,
@@ -3107,9 +3107,9 @@
 										"$ref": "AAAAAAGOpYX2yONzQ+M="
 									},
 									"font": "Arial;13;0",
-									"left": 257,
+									"left": 256,
 									"top": 487,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -5.32256916033657,
 									"distance": 15,
@@ -3382,9 +3382,9 @@
 										"$ref": "AAAAAAGOpYYS2ub1Kjw="
 									},
 									"font": "Arial;13;0",
-									"left": 267,
+									"left": 266,
 									"top": 172,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -3657,9 +3657,9 @@
 										"$ref": "AAAAAAGOpYedI/yXOv8="
 									},
 									"font": "Arial;13;0",
-									"left": 276,
+									"left": 275,
 									"top": 358,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -4117,9 +4117,9 @@
 										"$ref": "AAAAAAGOpnDRDmMumWk="
 									},
 									"font": "Arial;13;0",
-									"left": 618,
+									"left": 617,
 									"top": 206,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -4451,9 +4451,9 @@
 										"$ref": "AAAAAAGOpnEE0HN0kbo="
 									},
 									"font": "Arial;13;0",
-									"left": 621,
+									"left": 620,
 									"top": 468,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -4726,9 +4726,9 @@
 										"$ref": "AAAAAAGOpnKeD8nqU8w="
 									},
 									"font": "Arial;13;0",
-									"left": 585,
+									"left": 584,
 									"top": 143,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5796888837190755,
 									"distance": 14.142135623730951,
@@ -4997,9 +4997,9 @@
 										"$ref": "AAAAAAGOpnO0YgpZje0="
 									},
 									"font": "Arial;13;0",
-									"left": 472,
+									"left": 471,
 									"top": 200,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 1.1396579909624123,
 									"distance": 15.264337522473747,
@@ -5269,9 +5269,9 @@
 										"$ref": "AAAAAAGOpnPBeA7vTQY="
 									},
 									"font": "Arial;13;0",
-									"left": 479,
+									"left": 478,
 									"top": 310,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -6039,7 +6039,8 @@
 								"$ref": "AAAAAAGOpNqD+3nmPek="
 							},
 							"name": "companyId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6048,7 +6049,8 @@
 								"$ref": "AAAAAAGOpNqD+3nmPek="
 							},
 							"name": "companyName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6057,7 +6059,8 @@
 								"$ref": "AAAAAAGOpNqD+3nmPek="
 							},
 							"name": "regionName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -6105,7 +6108,8 @@
 								"$ref": "AAAAAAGOpNqdP3oQcu8="
 							},
 							"name": "specializationId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6114,7 +6118,8 @@
 								"$ref": "AAAAAAGOpNqdP3oQcu8="
 							},
 							"name": "description",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -6345,7 +6350,8 @@
 								"$ref": "AAAAAAGOpN7csHqbWKs="
 							},
 							"name": "dentistId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6354,7 +6360,8 @@
 								"$ref": "AAAAAAGOpN7csHqbWKs="
 							},
 							"name": "firstName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6363,7 +6370,8 @@
 								"$ref": "AAAAAAGOpN7csHqbWKs="
 							},
 							"name": "lastName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6372,7 +6380,8 @@
 								"$ref": "AAAAAAGOpN7csHqbWKs="
 							},
 							"name": "phoneNumber",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6381,7 +6390,8 @@
 								"$ref": "AAAAAAGOpN7csHqbWKs="
 							},
 							"name": "email",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6390,7 +6400,8 @@
 								"$ref": "AAAAAAGOpN7csHqbWKs="
 							},
 							"name": "specialization",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6399,7 +6410,8 @@
 								"$ref": "AAAAAAGOpN7csHqbWKs="
 							},
 							"name": "maxAppointment",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -6515,7 +6527,8 @@
 								"$ref": "AAAAAAGOpOBoyXrrCpI="
 							},
 							"name": "appointmentId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6524,7 +6537,8 @@
 								"$ref": "AAAAAAGOpOBoyXrrCpI="
 							},
 							"name": "appointDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6533,7 +6547,8 @@
 								"$ref": "AAAAAAGOpOBoyXrrCpI="
 							},
 							"name": "appointTime",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6542,7 +6557,8 @@
 								"$ref": "AAAAAAGOpOBoyXrrCpI="
 							},
 							"name": "patientId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6551,7 +6567,8 @@
 								"$ref": "AAAAAAGOpOBoyXrrCpI="
 							},
 							"name": "dentistId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6560,7 +6577,8 @@
 								"$ref": "AAAAAAGOpOBoyXrrCpI="
 							},
 							"name": "requestId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -6570,7 +6588,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Branch",
+					"name": "Surgery",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -6579,7 +6597,8 @@
 								"$ref": "AAAAAAGOpOMVq4CdhaM="
 							},
 							"name": "branchId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6588,7 +6607,8 @@
 								"$ref": "AAAAAAGOpOMVq4CdhaM="
 							},
 							"name": "branchName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -6749,7 +6769,8 @@
 								"$ref": "AAAAAAGOpONTm4Nc+2k="
 							},
 							"name": "patientId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6758,7 +6779,8 @@
 								"$ref": "AAAAAAGOpONTm4Nc+2k="
 							},
 							"name": "firstName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6767,7 +6789,8 @@
 								"$ref": "AAAAAAGOpONTm4Nc+2k="
 							},
 							"name": "lastName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6776,7 +6799,8 @@
 								"$ref": "AAAAAAGOpONTm4Nc+2k="
 							},
 							"name": "phoneNumber",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6785,7 +6809,8 @@
 								"$ref": "AAAAAAGOpONTm4Nc+2k="
 							},
 							"name": "email",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6794,7 +6819,8 @@
 								"$ref": "AAAAAAGOpONTm4Nc+2k="
 							},
 							"name": "billingDue",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -6831,7 +6857,8 @@
 								"$ref": "AAAAAAGOpXk+39KOgQ8="
 							},
 							"name": "mailAddressId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6840,7 +6867,8 @@
 								"$ref": "AAAAAAGOpXk+39KOgQ8="
 							},
 							"name": "street",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6849,7 +6877,8 @@
 								"$ref": "AAAAAAGOpXk+39KOgQ8="
 							},
 							"name": "city",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6858,7 +6887,8 @@
 								"$ref": "AAAAAAGOpXk+39KOgQ8="
 							},
 							"name": "zip",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -6877,7 +6907,8 @@
 								"$ref": "AAAAAAGOpX22jdLyXjg="
 							},
 							"name": "requestId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6886,7 +6917,8 @@
 								"$ref": "AAAAAAGOpX22jdLyXjg="
 							},
 							"name": "requestDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6895,7 +6927,8 @@
 								"$ref": "AAAAAAGOpX22jdLyXjg="
 							},
 							"name": "requestTime",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6904,7 +6937,8 @@
 								"$ref": "AAAAAAGOpX22jdLyXjg="
 							},
 							"name": "changeDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6913,7 +6947,8 @@
 								"$ref": "AAAAAAGOpX22jdLyXjg="
 							},
 							"name": "changeTime",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -6956,7 +6991,8 @@
 								"$ref": "AAAAAAGOpYvPNGAz2n0="
 							},
 							"name": "paymentId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6965,7 +7001,8 @@
 								"$ref": "AAAAAAGOpYvPNGAz2n0="
 							},
 							"name": "paymentDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6974,7 +7011,8 @@
 								"$ref": "AAAAAAGOpYvPNGAz2n0="
 							},
 							"name": "amount",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6983,7 +7021,8 @@
 								"$ref": "AAAAAAGOpYvPNGAz2n0="
 							},
 							"name": "appointmentId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
