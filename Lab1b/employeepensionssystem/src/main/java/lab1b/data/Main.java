@@ -92,6 +92,9 @@ public class Main {
     }
 
     private static void productToJson(List<Employee> employees) {
+
+  
+
         System.out.println("[");
         for (Employee employee : employees) {
             if(employee != null){
