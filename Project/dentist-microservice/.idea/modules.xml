@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PatientService/AddressService.iml" filepath="$PROJECT_DIR$/PatientService/AddressService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AddressService/AddressService1.iml" filepath="$PROJECT_DIR$/AddressService/AddressService1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApiGateway/ApiGateway.iml" filepath="$PROJECT_DIR$/ApiGateway/ApiGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QuestionService/QuestionService.iml" filepath="$PROJECT_DIR$/QuestionService/QuestionService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QuizService/QuizService.iml" filepath="$PROJECT_DIR$/QuizService/QuizService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ServiceRegistry/ServiceRegistry.iml" filepath="$PROJECT_DIR$/ServiceRegistry/ServiceRegistry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/dentist-microservice.iml" filepath="$PROJECT_DIR$/.idea/dentist-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/identity-service/identity-service.iml" filepath="$PROJECT_DIR$/identity-service/identity-service.iml" />
+    </modules>
+  </component>
+</project>
