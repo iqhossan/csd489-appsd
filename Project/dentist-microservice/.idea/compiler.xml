@@ -7,20 +7,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="DentistService" />
         <module name="AddressService" />
-        <module name="AddressService1" />
+        <module name="PatientService" />
         <module name="QuizService" />
         <module name="ServiceRegistry" />
         <module name="QuestionService" />
         <module name="identity-service" />
         <module name="ApiGateway" />
+        <module name="ManagerService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AddressService" target="17" />
-      <module name="AddressService1" target="17" />
       <module name="ApiGateway" target="17" />
+      <module name="DentistService" target="17" />
       <module name="identity-service" target="17" />
+      <module name="ManagerService" target="17" />
+      <module name="PatientService" target="17" />
       <module name="QuestionService" target="17" />
       <module name="QuizService" target="17" />
       <module name="ServiceRegistry" target="17" />
@@ -29,8 +33,10 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AddressService" options="-parameters" />
-      <module name="AddressService1" options="-parameters" />
       <module name="ApiGateway" options="-parameters" />
+      <module name="DentistService" options="-parameters" />
+      <module name="ManagerService" options="-parameters" />
+      <module name="PatientService" options="-parameters" />
       <module name="QuestionService" options="-parameters" />
       <module name="QuizService" options="-parameters" />
       <module name="ServiceRegistry" options="-parameters" />

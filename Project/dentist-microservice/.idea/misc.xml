@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/identity-service/pom.xml" />
         <option value="$PROJECT_DIR$/PatientService/pom.xml" />
         <option value="$PROJECT_DIR$/AddressService/pom.xml" />
+        <option value="$PROJECT_DIR$/DentistService/pom.xml" />
+        <option value="$PROJECT_DIR$/ManagerService/pom.xml" />
       </list>
     </option>
   </component>

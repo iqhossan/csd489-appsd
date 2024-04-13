@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PatientService/AddressService.iml" filepath="$PROJECT_DIR$/PatientService/AddressService.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AddressService/AddressService1.iml" filepath="$PROJECT_DIR$/AddressService/AddressService1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AddressService/AddressService.iml" filepath="$PROJECT_DIR$/AddressService/AddressService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ApiGateway/ApiGateway.iml" filepath="$PROJECT_DIR$/ApiGateway/ApiGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DentistService/DentistService.iml" filepath="$PROJECT_DIR$/DentistService/DentistService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ManagerService/ManagerService.iml" filepath="$PROJECT_DIR$/ManagerService/ManagerService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PatientService/PatientService.iml" filepath="$PROJECT_DIR$/PatientService/PatientService.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuestionService/QuestionService.iml" filepath="$PROJECT_DIR$/QuestionService/QuestionService.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuizService/QuizService.iml" filepath="$PROJECT_DIR$/QuizService/QuizService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServiceRegistry/ServiceRegistry.iml" filepath="$PROJECT_DIR$/ServiceRegistry/ServiceRegistry.iml" />

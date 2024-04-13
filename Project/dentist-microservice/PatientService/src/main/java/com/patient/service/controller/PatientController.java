@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @RestController
@@ -70,7 +71,7 @@ public class PatientController {
             patientDTO.setAddress(addressDTO);
             return ResponseEntity.ok(patientDTO);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Patient not found");
+        return ResponseEntity.ok("Data not found");
     }
 
     @GetMapping("/")
