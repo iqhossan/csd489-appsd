@@ -1,7 +1,7 @@
-package com.address.Service.repo;
+package com.address.service.repo;
 
-import com.address.Service.model.Address;
-import org.springframework.data.jpa.repository.JpaRepository;
+     import com.address.service.model.Address;
+        import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AddressRepository extends JpaRepository<Address, Long> {
 }

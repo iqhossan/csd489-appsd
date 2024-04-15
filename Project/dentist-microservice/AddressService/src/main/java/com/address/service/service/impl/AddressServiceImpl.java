@@ -1,13 +1,13 @@
-package com.address.Service.service.impl;
+package com.address.service.service.impl;
 
-import com.address.Service.model.Address;
-import com.address.Service.repo.AddressRepository;
-import com.address.Service.service.AddressService;
-import com.netflix.discovery.converters.Auto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+        import com.address.service.model.Address;
+        import com.address.service.repo.AddressRepository;
+        import com.address.service.service.AddressService;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Service;
+
+        import java.util.List;
 
 @Service
 public class AddressServiceImpl implements AddressService {

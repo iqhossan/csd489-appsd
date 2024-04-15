@@ -1,8 +1,7 @@
-package com.address.Service.service;
+package com.address.service.service;
+        import com.address.service.model.Address;
 
-import com.address.Service.model.Address;
-
-import java.util.List;
+        import java.util.List;
 
 public interface AddressService {
 

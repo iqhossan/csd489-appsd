@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/AddressService/pom.xml" />
         <option value="$PROJECT_DIR$/DentistService/pom.xml" />
         <option value="$PROJECT_DIR$/ManagerService/pom.xml" />
+        <option value="$PROJECT_DIR$/AppointmentService/pom.xml" />
+        <option value="$PROJECT_DIR$/UserService/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,8 +1,7 @@
-package com.address.Service.dto;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.address.service.dto;
+        import lombok.AllArgsConstructor;
+        import lombok.Data;
+        import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor

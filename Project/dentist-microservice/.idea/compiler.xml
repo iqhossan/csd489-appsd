@@ -9,18 +9,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="DentistService" />
         <module name="AddressService" />
+        <module name="UserService" />
         <module name="PatientService" />
         <module name="QuizService" />
         <module name="ServiceRegistry" />
         <module name="QuestionService" />
-        <module name="identity-service" />
         <module name="ApiGateway" />
         <module name="ManagerService" />
+        <module name="AppointmentService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AddressService" target="17" />
       <module name="ApiGateway" target="17" />
+      <module name="AppointmentService" target="17" />
       <module name="DentistService" target="17" />
       <module name="identity-service" target="17" />
       <module name="ManagerService" target="17" />
@@ -28,18 +30,21 @@
       <module name="QuestionService" target="17" />
       <module name="QuizService" target="17" />
       <module name="ServiceRegistry" target="17" />
+      <module name="UserService" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AddressService" options="-parameters" />
       <module name="ApiGateway" options="-parameters" />
+      <module name="AppointmentService" options="-parameters" />
       <module name="DentistService" options="-parameters" />
       <module name="ManagerService" options="-parameters" />
       <module name="PatientService" options="-parameters" />
       <module name="QuestionService" options="-parameters" />
       <module name="QuizService" options="-parameters" />
       <module name="ServiceRegistry" options="-parameters" />
+      <module name="UserService" options="-parameters" />
       <module name="identity-service" options="-parameters" />
     </option>
   </component>

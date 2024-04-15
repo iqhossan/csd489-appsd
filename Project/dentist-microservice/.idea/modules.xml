@@ -4,14 +4,15 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AddressService/AddressService.iml" filepath="$PROJECT_DIR$/AddressService/AddressService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ApiGateway/ApiGateway.iml" filepath="$PROJECT_DIR$/ApiGateway/ApiGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AppointmentService/AppointmentService.iml" filepath="$PROJECT_DIR$/AppointmentService/AppointmentService.iml" />
       <module fileurl="file://$PROJECT_DIR$/DentistService/DentistService.iml" filepath="$PROJECT_DIR$/DentistService/DentistService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ManagerService/ManagerService.iml" filepath="$PROJECT_DIR$/ManagerService/ManagerService.iml" />
       <module fileurl="file://$PROJECT_DIR$/PatientService/PatientService.iml" filepath="$PROJECT_DIR$/PatientService/PatientService.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuestionService/QuestionService.iml" filepath="$PROJECT_DIR$/QuestionService/QuestionService.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuizService/QuizService.iml" filepath="$PROJECT_DIR$/QuizService/QuizService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServiceRegistry/ServiceRegistry.iml" filepath="$PROJECT_DIR$/ServiceRegistry/ServiceRegistry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserService/UserService.iml" filepath="$PROJECT_DIR$/UserService/UserService.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/dentist-microservice.iml" filepath="$PROJECT_DIR$/.idea/dentist-microservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/identity-service/identity-service.iml" filepath="$PROJECT_DIR$/identity-service/identity-service.iml" />
     </modules>
   </component>
 </project>

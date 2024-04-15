@@ -1,17 +1,17 @@
-package com.address.Service.controller;
+package com.address.service.controller;
 
-import com.address.Service.dto.AddressDTO;
-import com.address.Service.model.Address;
-import com.address.Service.service.AddressService;
-import com.address.Service.service.PatientFeignClient;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+        import com.address.service.dto.AddressDTO;
+        import com.address.service.model.Address;
+        import com.address.service.service.AddressService;
+        import com.address.service.service.PatientFeignClient;
+        import org.modelmapper.ModelMapper;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.http.ResponseEntity;
+        import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/address")
@@ -21,9 +21,6 @@ public class AddressController {
     private final ModelMapper modelMapper;
     @Autowired
     private AddressService addressService;
-
-    @Autowired
-    private PatientFeignClient patientFeignClient;
 
     @Autowired
     public AddressController(AddressService addressService, ModelMapper modelMapper) {
