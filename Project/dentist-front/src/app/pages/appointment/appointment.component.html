@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Appointment Date</th>
+            <th>Appointment Time</th>
+            <th>Patient Name</th>
+            <th>Dentist</th> 
+            <th>Branch Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let appointment of appointments">
+            <td>{{appointment.appointmentId}}</td>
+            <td>{{appointment.appointmentDate}}</td>
+            <td>{{appointment.appointmentTime}}</td>
+            <td>{{appointment.patientDTO.firstName}} {{appointment.patientDTO.lastName}}</td> 
+            <td>{{appointment.dentistDTO.firstName}} {{appointment.dentistDTO.lastName}}</td> 
+            
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="mt-5 container">
+        <div class="card">
+            <div class="card-header">
+                <h4>
+                    Add :: Surgery Location Form
+                    <a routerLink="/" class="btn btn-danger">Back</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <div *ngIf="isLoading; else elseForm">
+                    <app-loader :title="loadingTitle"></app-loader>
+                </div>
+                <ng-template #elseForm>
+                    <form (ngSubmit)="saveLocation()">
+                        <div class="mb-3">
+                            <label>Location Name</label>
+                            <input type="text" [(ngModel)]="branchname" name="branchname" class="form-control" required />
+                            <span *ngIf="errors.branchName" class="text-danger">{{errors.branchname}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Telephone No</label>
+                            <input type="text" [(ngModel)]="telephoneno" name="telephoneno" class="form-control" required/>
+                            <span *ngIf="errors.telephoneNo" class="text-danger">{{errors.telephoneno}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Street1</label>
+                            <input type="text" [(ngModel)]="street1" name="street1" class="form-control" required/>
+                            <span *ngIf="errors.street1" class="text-danger">{{errors.street1}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Street2</label>
+                            <input type="text" [(ngModel)]="street2" name="street2" class="form-control" />
+                            <span *ngIf="errors.street2" class="text-danger">{{errors.street2}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>State</label>
+                            <input type="text" [(ngModel)]="state" name="state" class="form-control" required/>
+                            <span *ngIf="errors.state" class="text-danger">{{errors.state}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>City</label>
+                            <input type="text" [(ngModel)]="city" name="city" class="form-control" required/>
+                            <span *ngIf="errors.city" class="text-danger">{{errors.city}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Zip Code</label>
+                            <input type="text" [(ngModel)]="zipcode" name="zipcode" class="form-control" required/>
+                            <span *ngIf="errors.zipcode" class="text-danger">{{errors.zipcode}}</span>
+                        </div>
+                        <div class="mb-3"> 
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

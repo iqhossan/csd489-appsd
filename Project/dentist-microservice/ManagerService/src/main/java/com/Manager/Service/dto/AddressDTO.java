@@ -1,4 +1,4 @@
-package com.address.Service.dto;
+package com.Manager.Service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,5 +14,5 @@ public class AddressDTO {
     private String state;
     private String city;
     private Long zipcode;
-    private PatientDTO patientDto;
+    private CompanyDTO companyDto;
 }

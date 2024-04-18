@@ -8,6 +8,7 @@ import com.user.Service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +23,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
     @GetMapping("/test")
     public String test(){
         return "Welcome to Backend API of Dental Surgery portal";
@@ -33,7 +36,7 @@ public class UserController {
     //creating user
     @PostMapping("/register")
     public User createUser(@RequestBody User user) throws Exception {
-        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
         user.setPassword(user.getPassword());
         Role role =new Role();
         role.setRoleId(45L);

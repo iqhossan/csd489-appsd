@@ -1,4 +1,4 @@
-package com.address.Service.config;
+package com.Manager.Service.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

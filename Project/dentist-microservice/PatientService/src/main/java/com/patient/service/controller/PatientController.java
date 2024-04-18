@@ -67,7 +67,7 @@ public class PatientController {
         Patient patient = this.patientService.getPatient(patientId);
         if(patient !=null){
             PatientDTO patientDTO = modelMapper.map(patient,PatientDTO.class);
-            AddressDTO addressDTO = addressFeignClient.getAddressDataById(patientId);
+            AddressDTO addressDTO = addressFeignClient.getAddressDataById(patientDTO.getAddress().getAddressId());
             patientDTO.setAddress(addressDTO);
             return ResponseEntity.ok(patientDTO);
         }
@@ -84,7 +84,7 @@ public class PatientController {
                 .collect(Collectors.toList());
         List<PatientDTO> patientListWithAddress = new ArrayList<>();
         for(PatientDTO pt:patientDTOList){
-            pt.setAddress(addressFeignClient.getAddressDataById(pt.getPatientId()));
+            pt.setAddress(addressFeignClient.getAddressDataById(pt.getAddress().getAddressId()));
             patientListWithAddress.add(pt);
         }
         return ResponseEntity.ok(patientListWithAddress);

@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="mt-5 container">
+        <div class="card">
+            <div class="card-header">
+                <h4>
+                    Edit :: Surgery Location Form
+                    <a routerLink="/" class="btn btn-danger">Back</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <div *ngIf="isLoading; else elseForm">
+                    <app-loader :title="loadingTitle"></app-loader>
+                </div>
+                <ng-template #elseForm>
+                    <form (ngSubmit)="updateLocation()">
+                        <input type="hidden" [(ngModel)]="surgery.branchId" name="branchId" class="form-control" required />
+                        <input type="hidden" [(ngModel)]="surgery.addressId" name="addressId" class="form-control" required />
+                        <div class="mb-3">
+                            <label>Location Name</label>
+                            <input type="text" [(ngModel)]="surgery.branchName" name="branchName" class="form-control" required />
+                            <span *ngIf="errors.branchName" class="text-danger">{{errors.branchName}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Telephone No</label>
+                            <input type="text" [(ngModel)]="surgery.telephoneNo" name="telephoneNo" class="form-control" required/>
+                            <span *ngIf="errors.telephoneNo" class="text-danger">{{errors.telephoneNo}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Street1</label>
+                            <input type="text" [(ngModel)]="surgery.address.street1" name="street1" class="form-control" required/>
+                            <span *ngIf="errors.street1" class="text-danger">{{errors.street1}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Street2</label>
+                            <input type="text" [(ngModel)]="surgery.address.street2" name="street2" class="form-control" />
+                            <span *ngIf="errors.street2" class="text-danger">{{errors.street2}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>State</label>
+                            <input type="text" [(ngModel)]="surgery.address.state" name="state" class="form-control" required/>
+                            <span *ngIf="errors.state" class="text-danger">{{errors.state}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>City</label>
+                            <input type="text" [(ngModel)]="surgery.address.city" name="city" class="form-control" required/>
+                            <span *ngIf="errors.city" class="text-danger">{{errors.city}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Zip Code</label>
+                            <input type="text" [(ngModel)]="surgery.address.zipcode" name="zipcode" class="form-control" required/>
+                            <span *ngIf="errors.zipcode" class="text-danger">{{errors.zipcode}}</span>
+                        </div>
+                        <div class="mb-3"> 
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

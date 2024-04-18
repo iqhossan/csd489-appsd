@@ -1,6 +1,6 @@
 spring:
   application:
-    name: MANAGER-SERVICE
+    name: OFFICE-SERVICE
 
 server:
   port: 8089

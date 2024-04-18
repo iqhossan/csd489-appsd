@@ -23,7 +23,7 @@ public class Patient {
     private String phoneNo;
     private String email;
     private double dues = 0.0;
-    private int addressId;
+    private Long addressId;
 
     @OneToMany(mappedBy = "patient")
     @JsonIgnore
