@@ -75,10 +75,13 @@ public class BranchController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<BranchDTO>> getAllBranch(){
-        List<Branch> branch = this.branchService.getAllBranch();
+    public ResponseEntity<List<BranchDTO>> getAllBranch(
+            @RequestParam(value = "pageNumber", defaultValue = "1", required = false ) Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5", required = false ) Integer pageSize
+            ){
+        List<Branch> branch = this.branchService.getAllBranch(pageNumber, pageSize);
         //Sorting patient by lastname
-        branch.sort(Comparator.comparing(Branch::getBranchName).reversed());
+        //branch.sort(Comparator.comparing(Branch::getBranchName).reversed());
         List<BranchDTO> branchDTOList = branch.stream()
                 .map(br-> modelMapper.map(br, BranchDTO.class))
                 .collect(Collectors.toList());

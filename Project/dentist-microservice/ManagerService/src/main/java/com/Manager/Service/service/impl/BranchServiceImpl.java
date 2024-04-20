@@ -4,8 +4,12 @@ import com.Manager.Service.model.Branch;
 import com.Manager.Service.repo.BranchRepository;
 import com.Manager.Service.service.BranchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -25,8 +29,12 @@ public class BranchServiceImpl implements BranchService {
     }
 
     @Override
-    public List<Branch> getAllBranch() {
-        return this.branchRepository.findAll();
+    public List<Branch> getAllBranch(Integer pageNumber,Integer pageSize) {
+        Pageable p = PageRequest.of(pageNumber,pageSize);
+        Page<Branch> pageBranch = this.branchRepository.findAll(p);
+        List<Branch> AllBranch = pageBranch.getContent();
+        AllBranch.stream().forEach(n->System.out.println(n));
+        return AllBranch;
     }
 
     @Override
