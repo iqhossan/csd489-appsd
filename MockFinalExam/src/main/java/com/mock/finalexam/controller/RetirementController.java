@@ -1,6 +1,7 @@
 package com.mock.finalexam.controller;
 
 import com.mock.finalexam.dto.EmployeeDTO;
+import com.mock.finalexam.dto.EmployeeResponse;
 import com.mock.finalexam.dto.ResponseDTO;
 import com.mock.finalexam.dto.RetirementResponse;
 import com.mock.finalexam.model.Employee;
@@ -16,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
-public class EmployeeController {
+public class RetirementController {
 
     @Autowired
     private ModelMapper modelMapper;
@@ -29,7 +30,7 @@ public class EmployeeController {
 
 
     @PostMapping("/")
-    public ResponseEntity<RetirementPlan> addEmployeeRetirementPlan(@RequestBody EmployeeDTO employeeDTO){
+    public ResponseEntity<RetirementResponse> addEmployeeRetirementPlan(@RequestBody EmployeeDTO employeeDTO){
         RetirementPlan plan = new RetirementPlan();
         plan.setReferenceNumber(employeeDTO.getReferenceNumber());
         plan.setRetirementDate(employeeDTO.getRetirementDate());
@@ -43,7 +44,12 @@ public class EmployeeController {
        // emp.setRetirementPlan(plan);
         plan.setEmployee(emp);
         plan = this.retirementService.addEmployeeWithRetirementPlan(plan);
-        return ResponseEntity.ok(plan);
+
+        RetirementResponse response = new RetirementResponse(plan.getPlanId(),plan.getReferenceNumber(),plan.getEnrollmentDate(),plan.getRetirementDate(),
+                plan.getMonthlyContribution(),new EmployeeResponse(plan.getEmployee().getEmployeeId(),
+                plan.getEmployee().getFirstName(), plan.getEmployee().getLastName(), plan.getEmployee().getYearlySalary()));
+
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/")

@@ -1,0 +1,206 @@
+netstat -ano | findstr :8080
+taskkill /F /PID 29028
+
+D:\E\Me\Personal\University\Study\Courses\CS489-APSD\Reza vai\ASD\Assignment\1\cs489-apsd-202310-615162\Final_review
+
+<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+
+	</dependencies>
+
+------------------------------------------------------
+
+spring.application.name=MockTest2
+
+#Database Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/mocktest_apsd_db
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+#JPA configuration
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.format_sql=true
+
+--------------------------------------------------------------
+
+package com.mock.test2.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public org.modelmapper.ModelMapper modelMapper() {
+        return new org.modelmapper.ModelMapper();
+    }
+}
+--------------------------------------------------------------
+
+Data Persistence
+1.	What is Data Persistence?
+Data Persistence refers to the mechanisms for storing data into non-volatile storage.
+2.	What are the different Types of Data persistence? Or What are the data storage options for performing/implementing Data Persistence?
+•	Unstructured File-based Persistence refers to the mechanisms for writing/saving data to flat files e.g. CSV, ASCII TEXT etc.
+•	Semi-structured File-based Persistence refers to the mechanisms for writing/saving data in semi-structured file formats such as XML, JSON etc.
+•	In-memory data store – useful for caching
+•	Database Persistence – Relational, SQL databases or NoSQL databases
+3.	Drawbacks of using JDBC
+•	Impedance mismatch.
+•	Repetitive boiler-plate code.
+•	No compile-time error-checking of embedded SQL code
+4.	What is an ORM? Give an example.
+Object-Relational Mapping (ORM) is a technique for translating/converting data between relational database and object oriented programming language.
+5.	What is Jakarta Persistence?
+Jakarta Persistence is the specification that defines ORM for Enterprise Java applications
+6.	What options exist for implementing Data Persistence for applications on the Java Platform and give their benefits and/or drawbacks?
+7.	What is an ORM? Give an example.
+8.	What is Hibernate? And how is it related to the Jakarta Persistence API (JPA)?
+•	Hibernate is an open-source Object-Relational Mapping (ORM) framework for implementing data persistence for enterprise application for the Java platform.
+•	Hibernate is an implementation of the Jakarta Persistence specification – it is a JPA provider
+9.	What is Spring Data
+Spring Data: Umbrella project offering abstractions for different data access technologies like JPA, MongoDB, Cassandra, etc. It aims to reduce boilerplate code and streamline data access logic
+10.	What is Spring Data JPA?
+•	The java persistence API provides a specification for persisting, reading, and managing data from your java object to your relational tables in the database. JPA specifies the set of rules and guidelines for developing interfaces that follow standards. Straight to the point: JPA is just guidelines to implement ORM and there is no underlying code for the implementation. Spring Data JPA is part of the spring framework
+•	Spring Data JPA – Part of the Spring Data family; for implementing JPA based data access components for Spring applications.
+•	Uses Hibernate as the default JPA provider
+11.	What is Cascade type?
+Cascade types are used in object-relational mapping (ORM) frameworks like JPA and Hibernate to define how operations on a parent entity are automatically applied to its related child entities.
+•	CascadeType.PERSIST: When the parent entity is saved, any new child entities associated with it are also saved.
+•	CascadeType.MERGE: When the parent entity is merged, any changes to its child entities are also merged.
+•	CascadeType.REMOVE: When the parent entity is deleted, the associated child entities are also deleted.
+•	CascadeType.REFRESH: When the parent entity is refreshed, any changes in the database for its child entities are also reflected in the child entity objects.
+•	CascadeType.DETACH: When the parent entity is detached from the persistence context (basically removed from JPA's management), the associated child entities are also detached.
+•	CascadeType.ALL: This is a shortcut for applying all the above cascade types (PERSIST, MERGE, REMOVE, REFRESH, DETACH)
+12.	What are the types of fetch?
+•	Lazy fetching: This is the default behavior for most relationships. JPA retrieves the parent entity initially, but child entities are only loaded when you specifically access them in your code. This can improve performance for queries that only need the parent entity data.
+•	Eager fetching: JPA retrieves both the parent entity and all its associated child entities in a single query using JOINs. This guarantees all data is available immediately but might have a performance impact for large datasets.
+
+13.	What is the name of the Spring Platform module for implementing Data Persistence using JPA?
+14.	Name 3 essential Spring Application configuration settings found in the application.properties file for configuring Data Access for a spring boot, spring data JPA-based data-driven enterprise application
+15.	To implement/code a Spring-based Data Access component known as a Repository for accessing entity object data you are required to code an interface that inherits one or more super-interfaces defined in Spring Data JPA. Which super-interface(s) will you extend and why?
+16.	One of the essential properties needed for JPA/Hibernate configuration in the application.properties (or application.yml) file is named, 'spring.jpa.hibernate.ddl-auto'. What are its possible values. And what does each one do?
+17.	Say you have implemented the good design principle of defining an interface for your Service component. And you have 2 or more concrete Service class implementations of the interface. How do you indicate to the Spring DI container which of the concrete implementation class to inject as dependency into another Spring Bean?
+REST
+1.	What is REST?
+•	Representational State Transfer
+•	It is an architectural style for distributed hypermedia system
+2.	What are the principal of REST?
+•	Uniform Interface – REST resources are identified through Uniform Resource Indentfiers (URI)
+•	Client-Server components - SoC
+•	Stateless
+•	Cacheable
+•	Layered
+3.	What is Spring MVC?
+•	Spring Web MVC is the core module in the Spring platform for implementing Web Applications, including REST Web APIs.
+•	It provides a web application development framework that uses the Model-ViewController architectural pattern
+Spring Security
+1.	What is Authentication?
+Authentication: process of verifying a user’s identity. Ascertaining that someone is who they claim to be (e.g. userID and password)
+
+
+2.	What is Authorization?
+Authorization: mechanism for establishing access-level and granting appropriate rights and privileges.
+3.	What is Session-based Authentication and what is its limitation?
+Session-based authentication relies on server-side sessions to maintain user authentication state across requests. It uses session cookies to identify users.
+Limitation:
+Scalability Issues: Session data is typically stored on the server-side (e.g., in-memory or in a database). As the number of users increases, maintaining session data for each user can become resource-intensive and impact scalability.
+Horizontal Scaling Challenges: In distributed environments with multiple server instances (horizontal scaling), session data needs to be synchronized across servers. This can introduce complexities and overhead, such as using sticky sessions or session replication mechanisms.
+Statefulness: Session-based authentication relies on server-side state to manage authentication, making applications stateful. This can complicate load balancing and failover strategies.
+Single Point of Failure: If the server maintaining session data goes down, users may lose their authentication state, leading to disruptions in user experience.
+Mobile/API Considerations: Session-based authentication can be less suitable for stateless clients like mobile apps or APIs, where maintaining session state is less practical.
+
+
+4.	What is Token-based Authentication and why/when is it suitable?
+5.	What is JWT?
+6.	Name 3 important types (class or interface) in the Spring Security API for implementing Authentication
+•	UserDetailsService: is an interface is a core component in Spring Security for loading user-specific data during authentication
+•	AuthenticationManager: is an interface with just one method named, authenticate, which processes an Authentication request.
+•	AuthenticationProvider: an interface that can be implemented by one or more classes that provider Authentication service using a given authentication mechanism
+7.	Name 4 types of auth mechanisms supported in Spring Security
+•	HTTP Basic Authentication: enabled in HTTP server or Servlet container
+•	Form-based, custom Database Authentication: Where we use a Database to store/authenticate the user credentials.
+•	LDAP-driven Authentication. e.g. Microsoft Windows Active Directory service
+•	OAuth/OpenID Connect Authentication e.g. Login with Google or Microsoft or Github or Facebook account
+•	Token-based Authentication: Using JSON web token (JWT)
+8.	How do you implement database-driven, token-based auth for a REST WebAPI application using Spring Security and JWT?
+Testing
+1.	What is Software Testing? Importance of Testing
+Software Testing is the process of evaluating and verifying that a software product or application does what it is supposed to do.
+The goal of testing is to prevent or find and remove bugs, reduce development cost and enhance the performance of the application
+2.	What is Mocking?
+Mocking is a technique used in software development and testing to simulate the behavior of real objects or components within a system.
+3.	Why TDD is considered the better approach in software development.
+Improved Code Quality:
+Early Bug Detection:
+Clearer Requirements and Design:
+Regression Testing Automation: any changes does not affect to existing one
+
+Containers and Containerization
+1.	What is Docker?
+Docker is a tool that used to automate the deployed of software application in lightweight container so that the application can work efficiently in different environments
+2.	What is Container?
+Container is a software package that consist of all dependency to run an application
+3.	What are the components of Docker
+Docker Client & Server
+ 	Docker Images
+ 	Docker Container
+ 	Docker Registry
+
+
+
+4.	What’s the difference between virtualization and containerization?
+
+Virtualization is an abstract version of a physical machine, while containerization is the abstract version of an application.
+
+5.	Name the essential Docker commands and what they do.
+The most critical Docker commands are:
+•	Build - Builds a Docker image file
+•	Commit - Creates a new image from container changes
+•	Create - Creates a new container
+•	Dockerd - Launches Docker daemon
+•	Kill - Kills a container
+
+6.	Addsd
+7.	Sdfsd
+8.	Dsfds
+9.
+

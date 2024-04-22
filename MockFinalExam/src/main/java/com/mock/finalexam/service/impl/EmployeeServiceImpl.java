@@ -1,10 +1,8 @@
 package com.mock.finalexam.service.impl;
 
-import com.mock.finalexam.dto.EmployeeResponse;
-import com.mock.finalexam.dto.ResponseDTO;
-import com.mock.finalexam.dto.RetirementDTO;
-import com.mock.finalexam.dto.RetirementResponse;
+import com.mock.finalexam.dto.*;
 import com.mock.finalexam.model.Employee;
+import com.mock.finalexam.model.RetirementPlan;
 import com.mock.finalexam.repository.EmployeeRepository;
 import com.mock.finalexam.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +16,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     public EmployeeRepository employeeRepository;
-
-    @Override
-    public Employee addEmployeeWithRetirementPlan(Employee employee) {
-        return this.employeeRepository.save(employee);
-    }
-
 
     @Override
     public List<ResponseDTO> getEmployeeList() {

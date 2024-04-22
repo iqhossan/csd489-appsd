@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class RetirementPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long planId;
+    private Long planId;
     @Column(nullable = false, unique = true)
     private String referenceNumber;
     @Column(nullable = false)
@@ -30,4 +30,5 @@ public class RetirementPlan {
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name="employee_id")
     private Employee employee;
+
 }
