@@ -6,3 +6,5 @@ app.component.html --> is a main file needs to be changed
 create directory like components, pages
 -> ng g c navbar
 -> ng g c footer
+
+->npm install --save sweetalert2

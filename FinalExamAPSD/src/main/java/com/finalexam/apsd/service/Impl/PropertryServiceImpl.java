@@ -40,7 +40,6 @@ public class PropertryServiceImpl implements PropertyService {
                         d-> new LeaseResponse2(d.getLeaseId(),d.getLeaseReferenceNumber(),d.getStartDate(),d.getEndDate())
                 ).toList()
         )).toList();
-
     }
 
     public List<PropertyDTO> getAllProperties() {

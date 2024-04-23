@@ -7,6 +7,7 @@ import com.Manager.Service.service.AddressFeignClient;
 import com.Manager.Service.service.BranchService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,12 +75,12 @@ public class BranchController {
         return ResponseEntity.ok("Data not found");
     }
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public ResponseEntity<List<BranchDTO>> getAllBranch(
             @RequestParam(value = "pageNumber", defaultValue = "1", required = false ) Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "5", required = false ) Integer pageSize
             ){
-        List<Branch> branch = this.branchService.getAllBranch(pageNumber, pageSize);
+        Page<Branch> branch = this.branchService.getAllBranch(pageNumber, pageSize);
         //Sorting patient by lastname
         //branch.sort(Comparator.comparing(Branch::getBranchName).reversed());
         List<BranchDTO> branchDTOList = branch.stream()
@@ -87,6 +88,7 @@ public class BranchController {
                 .collect(Collectors.toList());
         List<BranchDTO> branchListWithAddress = new ArrayList<>();
         for(BranchDTO brdto:branchDTOList){
+            System.out.println(brdto.getAddressId());
             brdto.setAddress(addressFeignClient.getAddressDataById(brdto.getAddressId()));
             branchListWithAddress.add(brdto);
         }

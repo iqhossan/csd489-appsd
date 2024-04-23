@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
                 product.getQuantityInStock(),product.getUnitPrice(),
                 new SupplierResponse(product.getSupplier().getSupplierId(),
                         product.getSupplier().getName(),
-                        product.getSupplier().getContactPhone()));
+                        product.getSupplier().getContactPhone(),null));
     }
 
     @Override

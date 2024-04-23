@@ -14,9 +14,9 @@ export class SurgeryService {
   constructor(private httpClient:HttpClient) { }
 
   //Load all surgery location
-  getAllBranch():Observable<Surgery[]>{ 
-    //console.log(`${this.baseUrl}/branch/`);
-    return this.httpClient.get<Surgery[]>(`${this.baseUrl}/branch/`);
+  getAllBranch(page):Observable<Surgery[]>{ 
+    //console.log(`${this.baseUrl}/branch/all?pageNumber=${page}&pageSize=3`); 
+    return this.httpClient.get<Surgery[]>(`${this.baseUrl}/branch/all?pageNumber=${page}`);
   }
 
   // save surgery location

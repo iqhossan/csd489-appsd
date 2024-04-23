@@ -14,17 +14,28 @@ export class ViewSurgeryComponent implements OnInit {
   surgerydata:Surgery[]; 
   isLoading:Boolean = false;
  
+  private page:number=0; 
+  private pages:Array<number>
+
   constructor(private surgeryService:SurgeryService){}
   
+  setPage( i, event:any){
+    event.preventDefault();
+    this.page = i;
+    this.getSurgeryList();
+  }
+
   ngOnInit(): void {
     this.getSurgeryList();
   }
 
   getSurgeryList(){
     this.isLoading = true;
-    this.surgeryService.getAllBranch().subscribe(data=>{
+    this.surgeryService.getAllBranch(this.page).subscribe(data=>{
       this.surgerydata = data;
+      this.pages=new Array(5);
       this.isLoading = false;
+
     });
   }
 
