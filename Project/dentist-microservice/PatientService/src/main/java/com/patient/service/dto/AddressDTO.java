@@ -14,4 +14,8 @@ public class AddressDTO {
     private String state;
     private String city;
     private Long zipcode;
+
+    public AddressDTO(Long addressId) {
+        this.addressId = addressId;
+    }
 }

@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="mt-5 container">
+        <div class="card">
+            <div class="card-header">
+                <h4>
+                    Add :: Dentist Register Form
+                    <a routerLink="/view-dentist" class="btn btn-danger">Back</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <div *ngIf="isLoading; else elseForm">
+                    <app-loader :title="loadingTitle"></app-loader>
+                </div>
+                <ng-template #elseForm>
+                    <form (ngSubmit)="saveDentist()">
+                        <div class="mb-3">
+                            <label>First Name</label>
+                            <input type="text" [(ngModel)]="firstName" name="firstName" class="form-control" required />
+                            <span *ngIf="errors.firstName" class="text-danger">{{errors.firstName}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Last Name</label>
+                            <input type="text" [(ngModel)]="lastName" name="lastName" class="form-control" required/>
+                            <span *ngIf="errors.lastName" class="text-danger">{{errors.lastName}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Telephone Number</label>
+                            <input type="text" [(ngModel)]="phoneNumber" name="phoneNumber" class="form-control" required/>
+                            <span *ngIf="errors.phoneNumber" class="text-danger">{{errors.phoneNumber}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" [(ngModel)]="email" name="email" class="form-control" />
+                            <span *ngIf="errors.email" class="text-danger">{{errors.email}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Specialization</label>
+                            <input type="text" [(ngModel)]="specialization" name="specialization" class="form-control" required/>
+                            <span *ngIf="errors.specialization" class="text-danger">{{errors.specialization}}</span>
+                        </div> 
+                        <div class="mb-3"> 
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

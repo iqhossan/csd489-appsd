@@ -7,5 +7,4 @@ export class Dentist {
     email:string;
     specialization:string;
     maxAppointment:number;
-    
 }

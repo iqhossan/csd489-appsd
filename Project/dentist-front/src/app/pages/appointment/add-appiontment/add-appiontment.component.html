@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="mt-5 container">
+        <div class="card">
+            <div class="card-header">
+                <h4>
+                    Add :: Patient Appointment Entry Form
+                    <a routerLink="/view-patient" class="btn btn-danger">Back&nbsp;</a>
+                    <a routerLink="/view-appointment" class="btn btn-primary"  style="margin-left: 10px;">View Appointment</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <div *ngIf="isLoading; else elseForm">
+                    <app-loader :title="loadingTitle"></app-loader>
+                </div>
+                <ng-template #elseForm>
+                    <form (ngSubmit)="saveAppointment()"> 
+                        <input type="hidden" [(ngModel)]="patients.patientId" name="patientId" class="form-control" required />
+                        <div class="mb-12">
+                            <div class="form-group row"> 
+                                <div class="col-sm-6">
+                                    <label class="col-sm-4 col-form-label">Appointment Date</label>
+                                    <input type="date" [(ngModel)]="appointmentDate" name="appointmentDate" class="form-control" required />
+                                    <span *ngIf="errors.appointmentDate" class="text-danger">{{errors.appointmentDate}}</span> 
+                                </div>  
+                                <div class="col-sm-6">
+                                    <label class="col-sm-4 col-form-label">Appointment Time</label>
+                                    <input type="time" [(ngModel)]="appointmentTime" name="appointmentTime" class="form-control" required/> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Dentist</label> 
+                            <ng-select [(ngModel)]="selectedDentist" name="dentistId" (change) = "itemSelected($event)">
+                                <ng-option [value]="-1" selected>Select Dentist</ng-option>
+                                <ng-option *ngFor="let dentist of dentists" 
+                                    [value]="dentist.dentistId">{{dentist.firstName}}-{{dentist.lastName}}
+                                </ng-option>
+                            </ng-select>  
+                        </div> 
+                        <div class="mb-3">
+                            <label>Surgery Location</label> 
+                            <ng-select [(ngModel)]="selectedLocation" name="branchId" (change) = "itemSelected($event)">
+                                <ng-option [value]="-1" selected>Select Surgery</ng-option>
+                                <ng-option *ngFor="let surgery of surgeris" 
+                                    [value]="surgery.branchId">{{surgery.branchName}}
+                                </ng-option>
+                            </ng-select>  
+                        </div> 
+                        
+                        <div class="mb-3"> 
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered"> 
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Phone No</th>
+                                    <th>Email</th>  
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zipcode</th>
+                                    <th>Dues</th> 
+                                    <th>Action</th>
+                                </tr> 
+                            </thead> 
+                            <tbody>
+                                <tr>
+                                    <td>{{patients.patientId}}</td>
+                                    <td>{{patients.firstName}}</td>
+                                    <td>{{patients.lastName}}</td>
+                                    <td>{{patients.phoneNo}}</td> 
+                                    <td>{{patients.email}}</td> 
+                                    <td>{{patients.address.street1}} {{patients.address.street2}}</td>
+                                    <td>{{patients.address.city}}</td>
+                                    <td>{{patients.address.state}}</td>
+                                    <td>{{patients.address.zipcode}}</td>
+                                    <td>{{patients.dues}}</td> 
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a routerLink="/edit-patient/{{patients.patientId}}/{{patients.address.addressId}}" class="btn btn-success mr-2">Edit</a> 
+                                        </div>  
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>  
+                    </div>
+            
+                </ng-template>
+
+            </div>
+        </div>
+    </div>
+</div>

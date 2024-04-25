@@ -127,6 +127,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>userservice-docker-compose</finalName>
 	</build>
 
 </project>

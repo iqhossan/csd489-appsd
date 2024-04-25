@@ -20,11 +20,8 @@ public class SupplierResponse {
     @NotBlank(message = "name should be required field")
     private String name;
     private String contactPhone;
+
     //private List<Product> product;
 
-    public SupplierResponse(Long supplierId, String name, String contactPhone) {
-        this.supplierId = supplierId;
-        this.name = name;
-        this.contactPhone = contactPhone;
-    }
+
 }

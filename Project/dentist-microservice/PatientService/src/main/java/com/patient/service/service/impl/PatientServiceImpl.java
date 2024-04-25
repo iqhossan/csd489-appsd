@@ -6,15 +6,22 @@ import com.patient.service.model.Patient;
 import com.patient.service.repo.PatientRepository;
 import com.patient.service.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service
 public class PatientServiceImpl implements PatientService {
 
     @Autowired
     private PatientRepository patientRepository;
+
+    private static final Logger logger = Logger.getLogger(PatientServiceImpl.class.getName());
 
     @Override
     public Patient addPatient(Patient patient) {
@@ -27,8 +34,21 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public List<Patient> getPatients() {
-        return this.patientRepository.findAll();
+    public List<Patient> getPatients(Integer pageNumber,Integer pageSize) {
+        try {
+            Sort.Order sortOrder = Sort.Order.desc("patientId"); // Sorting by 'patientId' field in descending order
+            Sort sort = Sort.by(sortOrder);
+            PageRequest pageRequest = PageRequest.of(pageNumber,pageSize,sort); // Adjust pageNumber to 0-based index
+            Page<Patient> pagePatient = this.patientRepository.findAll(pageRequest);
+            List<Patient> allPatient = pagePatient.getContent();
+
+            // Log essential patient information without causing recursion
+            allPatient.forEach(p -> logger.info("Fetched patient - ID: " + p.getPatientId() + ", Name: " + p.getFirstName() + " " + p.getLastName()));
+            return allPatient;
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error fetching patients: " + e.getMessage(), e);
+            throw new RuntimeException("Error fetching patients");
+        }
     }
 
     @Override

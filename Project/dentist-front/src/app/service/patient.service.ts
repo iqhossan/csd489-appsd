@@ -10,18 +10,34 @@ import { Patient } from '../model/patient';
 })
 export class PatientService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private _httpClient:HttpClient) { }
 
   private baseUrl = patientUrl;
 
+  //load all Patient list
+  getAllPatientList(page:number):Observable<Patient[]>{
 
-  getPatientList():Observable<Patient[]>{
-    console.log(`${this.baseUrl}/`);
-    return this.httpClient.get<Patient[]>(`${this.baseUrl}/patient/`)
+    return this._httpClient.get<Patient[]>(`${this.baseUrl}/patient/all?pageNumber=${page}`); 
   }
 
-  // public quizzes(){
-  //   return this.httpClient.get(`${baseUrl}/quiz/`)
-  // }
+  //get patient by id
+  getPatientById(pId:number):Observable<Patient>{
+    return this._httpClient.get<Patient>(`${this.baseUrl}/patient/${pId}`)
+  }
+
+  // save Patient
+  savePatient(inputData:Object){ 
+    return this._httpClient.post(`${this.baseUrl}/patient/`,inputData);
+  }
+
+  // update Patient
+  updatePatient(inputData:Object){ 
+    return this._httpClient.put(`${this.baseUrl}/patient/`,inputData);
+  }
+  
+  //delete the Patient data
+  deletePatientById(pId:number):Observable<Boolean>{ 
+    return this._httpClient.delete<Boolean>(`${this.baseUrl}/patient/${pId}`);
+  }
 
 }

@@ -20,6 +20,4 @@ public class PatientDTO {
     private String email;
     private double dues = 0.0;
     private AddressDTO address;
-    @JsonIgnore
-    private List<AppointmentRequest> appointmentRequestList;
 }

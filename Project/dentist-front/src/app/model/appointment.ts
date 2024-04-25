@@ -1,6 +1,7 @@
 import { Time } from "@angular/common";
 import { Dentist } from "./dentist";
 import { Patient } from "./patient";
+import { Surgery } from "./surgery";
 
 export class Appointment {
 
@@ -13,4 +14,5 @@ export class Appointment {
     branchId:number;
     dentistDTO:Dentist;
     patientDTO:Patient;
+    BranchDTO:Surgery;
 }

@@ -26,8 +26,11 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public List<SupplierResponse> getListOfSuppliers() {
         List<Supplier> supplier = this.repository.findAll(Sort.by("name"));
-        List<SupplierResponse> res =  supplier.stream()
-                .map(s-> modelMapper.map(s,SupplierResponse.class)).collect(Collectors.toList());
+//        List<SupplierResponse> res =  supplier.stream()
+//                .map(s-> modelMapper.map(s,SupplierResponse.class)).collect(Collectors.toList());
+
+        List<SupplierResponse> res = supplier.stream()
+                .map(s->new SupplierResponse(s.getSupplierId(),s.getName(),s.getContactPhone())).toList();
         return res;
     }
 

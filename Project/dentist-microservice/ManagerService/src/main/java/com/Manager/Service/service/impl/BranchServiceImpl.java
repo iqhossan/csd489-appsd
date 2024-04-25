@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.logging.Level;
@@ -37,19 +38,26 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public Page<Branch> getAllBranch(Integer pageNumber,Integer pageSize) {
-//        Pageable p = PageRequest.of(pageNumber,pageSize);
-//        Page<Branch> pageBranch = this.branchRepository.findAll(p);
-//        List<Branch> AllBranch = pageBranch.getContent();
-//        AllBranch.stream().forEach(n->System.out.println(n));
-//        return AllBranch;
-//
-
         try {
-            PageRequest pageRequest = PageRequest.of(pageNumber , pageSize); // Adjust pageNumber to 0-based index
+            Sort.Order sortOrder = Sort.Order.desc("branchId"); // Sorting by 'branchId' field in descending order
+            Sort sort = Sort.by(sortOrder);
+            PageRequest pageRequest = PageRequest.of(pageNumber , pageSize,sort); // Adjust pageNumber to 0-based index
             Page<Branch> pageBranch = this.branchRepository.findAll(pageRequest);
             List<Branch> allBranch = pageBranch.getContent();
             allBranch.forEach(branch -> logger.info("Fetched Branch: " + branch.toString()));
             return pageBranch;
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error fetching branches: " + e.getMessage(), e);
+            throw new RuntimeException("Error fetching branches");
+        }
+    }
+
+    @Override
+    public List<Branch> getBranchExcludePagination() {
+        try {
+            List<Branch> allBranch = this.branchRepository.findAll();
+            allBranch.forEach(branch -> logger.info("Fetched Branch: " + branch.toString()));
+            return allBranch;
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Error fetching branches: " + e.getMessage(), e);
             throw new RuntimeException("Error fetching branches");

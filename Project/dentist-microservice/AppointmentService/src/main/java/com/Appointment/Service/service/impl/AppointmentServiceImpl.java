@@ -5,6 +5,7 @@ import com.appointment.service.model.Appointment;
 import com.appointment.service.repo.AppointmentRepository;
 import com.appointment.service.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public List<Appointment> getAllAppointment() {
-        return this.appointmentRepository.findAll();
+        return this.appointmentRepository.findAll(Sort.by("appointmentId"));
     }
 
     @Override

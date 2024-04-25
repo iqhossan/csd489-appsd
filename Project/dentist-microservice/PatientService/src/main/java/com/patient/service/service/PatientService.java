@@ -9,7 +9,7 @@ public interface PatientService {
 
     Patient addPatient(Patient patient);
     Patient updatePatient(Patient patient);
-    List<Patient> getPatients();
+    List<Patient> getPatients(Integer pageNumber, Integer pageSize);
     Patient getPatient(Long patientId) throws Exception;
     void deletePatient(Long patientId);
 

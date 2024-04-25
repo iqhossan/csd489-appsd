@@ -25,7 +25,7 @@ public class Patient {
     private double dues = 0.0;
     private Long addressId;
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<AppointmentRequest> appointmentRequestList;
 

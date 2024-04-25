@@ -26,5 +26,6 @@ public class AppointmentRequest {
     private int cancel=0;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "patient_id")
     private Patient patient;
 }

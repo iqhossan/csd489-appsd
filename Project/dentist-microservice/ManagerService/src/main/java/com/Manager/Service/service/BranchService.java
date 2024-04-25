@@ -10,6 +10,7 @@ public interface BranchService {
     Branch createBranch(Branch branch);
     Branch updateBranch(Branch branch);
     Page<Branch> getAllBranch(Integer pageNumber, Integer pageSize);
+    List<Branch> getBranchExcludePagination();
     Branch getBranchById(Long branchId);
     boolean deleteBranch(Long branchId);
 }

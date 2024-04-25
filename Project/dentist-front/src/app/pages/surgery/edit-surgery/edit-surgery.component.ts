@@ -71,12 +71,12 @@ export class EditSurgeryComponent implements OnInit {
 
     //console.log(inputData,'response');
     
-    this.surgeryService.saveLocation(inputData).subscribe({
+    this.surgeryService.updateLocation(inputData).subscribe({
       next: (res:any) =>{ 
         Swal.fire("Success !!","Location Updated.",'success')
         .then((e)=>{
           this.isLoading = false;
-          this._router.navigate(['/surgery']);
+          this._router.navigate(['/view-surgery']);
         });
       },
       error:(err:any)=>{ 

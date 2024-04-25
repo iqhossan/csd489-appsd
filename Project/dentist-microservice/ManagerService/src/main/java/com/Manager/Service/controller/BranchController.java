@@ -77,7 +77,7 @@ public class BranchController {
 
     @GetMapping("/all")
     public ResponseEntity<List<BranchDTO>> getAllBranch(
-            @RequestParam(value = "pageNumber", defaultValue = "1", required = false ) Integer pageNumber,
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false ) Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "5", required = false ) Integer pageSize
             ){
         Page<Branch> branch = this.branchService.getAllBranch(pageNumber, pageSize);
@@ -95,6 +95,20 @@ public class BranchController {
         return ResponseEntity.ok(branchListWithAddress);
     }
 
+    @GetMapping("/")
+    public ResponseEntity<List<BranchDTO>> getBranchExcludePagination(){
+        List<Branch> branch = this.branchService.getBranchExcludePagination();
+        List<BranchDTO> branchDTOList = branch.stream()
+                .map(br-> modelMapper.map(br, BranchDTO.class))
+                .collect(Collectors.toList());
+        List<BranchDTO> branchListWithAddress = new ArrayList<>();
+        for(BranchDTO brdto:branchDTOList){
+            System.out.println(brdto.getAddressId());
+            brdto.setAddress(addressFeignClient.getAddressDataById(brdto.getAddressId()));
+            branchListWithAddress.add(brdto);
+        }
+        return ResponseEntity.ok(branchListWithAddress);
+    }
 
     @DeleteMapping("/{branchId}")
     public Boolean deleteBranch(@PathVariable("branchId") Long branchId){

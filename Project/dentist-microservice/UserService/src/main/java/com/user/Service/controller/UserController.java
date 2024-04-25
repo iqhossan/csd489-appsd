@@ -1,5 +1,6 @@
 package com.user.Service.controller;
 
+import com.user.Service.dto.UserDTO;
 import com.user.Service.helper.UserFoundException;
 import com.user.Service.model.Role;
 import com.user.Service.model.User;
@@ -35,12 +36,17 @@ public class UserController {
 
     //creating user
     @PostMapping("/register")
-    public User createUser(@RequestBody User user) throws Exception {
-        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setPassword(user.getPassword());
+    public User createUser(@RequestBody UserDTO userDTO) throws Exception {
+        User user = new User();
+        user.setFirstname(userDTO.getFirstname());
+        user.setLastname(userDTO.getLastname());
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(this.bCryptPasswordEncoder.encode(userDTO.getPassword()));
+        user.setEmail(userDTO.getEmail());
+
         Role role =new Role();
-        role.setRoleId(45L);
-        role.setRoleName("ADMIN");
+        role.setRoleId(userDTO.getRoleId());
+        role.setRoleName(userDTO.getRoleName());
 
         UserRole userRole = new UserRole();
         userRole.setUser(user);

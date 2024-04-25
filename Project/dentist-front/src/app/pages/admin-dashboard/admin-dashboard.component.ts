@@ -9,17 +9,12 @@ import { Patient } from '../../model/patient';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  patients:Patient[]=[];
-  constructor(private patientSerive:PatientService){}
+  
+  constructor(){}
 
   ngOnInit():void{
-    this.getPatients();
+    
   }
 
-  getPatients(){
-    this.patientSerive.getPatientList().subscribe(data=>{
-      this.patients=data;
-    });
-  }
-
+  
 }

@@ -21,5 +21,6 @@ public class AppointmentDTO {
     private int branchId;
     private DentistDTO dentistDTO;
     private PatientDTO patientDTO;
+    private BranchDTO branchDTO;
     private AppointmentRequestDTO appointmentRequestDTO;
 }

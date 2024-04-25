@@ -74,16 +74,21 @@ public class PatientController {
         return ResponseEntity.ok("Data not found");
     }
 
-    @GetMapping("/")
-    public ResponseEntity<List<PatientDTO>> getPatients(){
-        List<Patient> patient = this.patientService.getPatients();
+    @GetMapping("/all")
+    public ResponseEntity<List<PatientDTO>> getPatients(
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false ) Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5", required = false ) Integer pageSize
+        ){
+        List<PatientDTO> patient = this.patientService.getPatients(pageNumber, pageSize).stream()
+                .map(p->new PatientDTO(p.getPatientId(),p.getFirstName(),p.getLastName(),
+                        p.getPhoneNo(),
+                        p.getEmail(),p.getDues(),
+                        new AddressDTO(p.getAddressId()))).toList();
         //Sorting patient by lastname
-        patient.sort(Comparator.comparing(Patient::getLastName));
-        List<PatientDTO> patientDTOList = patient.stream()
-                .map(patient1-> modelMapper.map(patient1, PatientDTO.class))
-                .collect(Collectors.toList());
+        //patient.sort(Comparator.comparing(Patient::getLastName));
+
         List<PatientDTO> patientListWithAddress = new ArrayList<>();
-        for(PatientDTO pt:patientDTOList){
+        for(PatientDTO pt:patient){
             pt.setAddress(addressFeignClient.getAddressDataById(pt.getAddress().getAddressId()));
             patientListWithAddress.add(pt);
         }

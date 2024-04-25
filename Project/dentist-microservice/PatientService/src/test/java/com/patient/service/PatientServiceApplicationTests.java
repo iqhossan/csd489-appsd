@@ -41,7 +41,7 @@ class PatientServiceApplicationTests {
 		patients.add(new Patient(null,"Rey","Brea",
 				"123 233 9544","a@gmail.com",100,1L,null)); //mocking
 		when(patientRepository.findAll()).thenReturn(patients);
-		assertEquals(3,patientService.getPatients().size());
+		assertEquals(3,patientService.getPatients(0,0).size());
 	}
 
 	@Test

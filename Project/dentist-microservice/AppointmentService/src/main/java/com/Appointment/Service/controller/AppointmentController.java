@@ -3,6 +3,7 @@ package com.appointment.service.controller;
 import com.appointment.service.dto.AppointmentDTO;
 import com.appointment.service.model.Appointment;
 import com.appointment.service.service.AppointmentService;
+import com.appointment.service.service.BranchFeignClient;
 import com.appointment.service.service.DentistFeignClient;
 import com.appointment.service.service.PatientFeignClient;
 import org.modelmapper.ModelMapper;
@@ -28,6 +29,8 @@ public class AppointmentController {
     @Autowired
     private PatientFeignClient patientFeignClient;
 
+    @Autowired
+    private BranchFeignClient branchFeignClient;
 
     @Autowired
     public AppointmentController(AppointmentService appointmentService, ModelMapper modelMapper) {
@@ -72,6 +75,21 @@ public class AppointmentController {
                 .map(appointmentDTO -> {
                     appointmentDTO.setDentistDTO(dentistFeignClient.getDentistData(appointmentDTO.getDentistId()));
                     appointmentDTO.setPatientDTO(patientFeignClient.getPatientData(appointmentDTO.getPatientId()));
+                    return appointmentDTO;
+                })
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(appointmentDTOS);
+    }
+
+    @GetMapping("/doctor/patient/branch/list")
+    public ResponseEntity<List<AppointmentDTO>> getAllAppointmentWithPatientDentistBranch(){
+        List<Appointment>appointment = this.appointmentService.getAllAppointment();
+        List<AppointmentDTO> appointmentDTOS = appointment.stream()
+                .map(appointment1 -> modelMapper.map(appointment1, AppointmentDTO.class))
+                .map(appointmentDTO -> {
+                    appointmentDTO.setDentistDTO(dentistFeignClient.getDentistData(appointmentDTO.getDentistId()));
+                    appointmentDTO.setPatientDTO(patientFeignClient.getPatientData(appointmentDTO.getPatientId()));
+                    appointmentDTO.setBranchDTO(branchFeignClient.getBranchData(appointmentDTO.getBranchId()));
                     return appointmentDTO;
                 })
                 .collect(Collectors.toList());

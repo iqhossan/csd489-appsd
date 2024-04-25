@@ -58,9 +58,21 @@ public class DentistController {
         return ResponseEntity.ok(modelMapper.map(dentist, DentistDTO.class));
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<DentistDTO>> getAllDentist(
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false ) Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5", required = false ) Integer pageSize
+        ){
+        List<Dentist> dentist = this.dentistService.getAllDentist(pageNumber, pageSize);
+        List<DentistDTO> dentistDTOList = dentist.stream()
+                .map(dentist1 -> modelMapper.map(dentist1, DentistDTO.class))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(dentistDTOList);
+    }
+
     @GetMapping("/")
-    public ResponseEntity<List<DentistDTO>> getAllDentist(){
-        List<Dentist> dentist = this.dentistService.getAllDentist();
+    public ResponseEntity<List<DentistDTO>> getDentistListExcludePagination(){
+        List<Dentist> dentist = this.dentistService.getDentistList();
         List<DentistDTO> dentistDTOList = dentist.stream()
                 .map(dentist1 -> modelMapper.map(dentist1, DentistDTO.class))
                 .collect(Collectors.toList());
@@ -68,8 +80,11 @@ public class DentistController {
     }
 
     @GetMapping("/appointment/list")
-    public ResponseEntity<List<DentistDTO>> getAllDentistWithAppointment(){
-        List<Dentist> dentist = this.dentistService.getAllDentist();
+    public ResponseEntity<List<DentistDTO>> getAllDentistWithAppointment(
+            @RequestParam(value = "pageNumber", defaultValue = "1", required = false ) Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5", required = false ) Integer pageSize
+        ){
+        List<Dentist> dentist = this.dentistService.getAllDentistWithAppointment(pageNumber, pageSize);
         List<DentistDTO> dentistDTOList = dentist.stream()
                 .map(dentist1 -> modelMapper.map(dentist1, DentistDTO.class))
                 .map(dentistDTO -> {
@@ -81,8 +96,11 @@ public class DentistController {
     }
 
     @GetMapping("/appointment/patient/list")
-    public ResponseEntity<List<DentistDTO>> getAllDentistAppointmentWithPatient(){
-        List<Dentist> dentist = this.dentistService.getAllDentist();
+    public ResponseEntity<List<DentistDTO>> getAllDentistAppointmentWithPatient(
+            @RequestParam(value = "pageNumber", defaultValue = "1", required = false ) Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5", required = false ) Integer pageSize
+        ){
+        List<Dentist> dentist = this.dentistService.getAllDentist(pageNumber, pageSize);
         List<DentistDTO> dentistDTOList = dentist.stream()
                 .map(dentist1 -> modelMapper.map(dentist1, DentistDTO.class))
                 .map(dentistDTO -> {
