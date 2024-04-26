@@ -14,7 +14,7 @@ services:
       - MYSQL_PASSWORD=root
 
   app:
-    image: userservice-docker-compose
+    image: userservice-docker-img
     networks:
       - blog-mysql
     ports:
