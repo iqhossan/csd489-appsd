@@ -17,7 +17,13 @@ export class PatientService {
   //load all Patient list
   getAllPatientList(page:number):Observable<Patient[]>{
 
-    return this._httpClient.get<Patient[]>(`${this.baseUrl}/patient/all?pageNumber=${page}`); 
+    return this._httpClient.get<Patient[]>(`${this.baseUrl}/patient/page?pageNumber=${page}`); 
+  }
+
+  //load all Patient list
+  getPatientsExcludePagination():Observable<Patient[]>{
+
+    return this._httpClient.get<Patient[]>(`${this.baseUrl}/patient/all`); 
   }
 
   //get patient by id

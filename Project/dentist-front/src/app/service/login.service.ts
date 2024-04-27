@@ -74,4 +74,10 @@ export class LoginService {
     return user.authorities[0].authority;
   }
 
+   //get user id
+   public getUserWhomId(){
+    let user = this.getUser();
+    return user.whomId;
+  }
+
 }

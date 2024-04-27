@@ -67,6 +67,7 @@ public class AppointmentController {
         return ResponseEntity.ok(appointmentDTOS);
     }
 
+
     @GetMapping("/doctor/patient/list")
     public ResponseEntity<List<AppointmentDTO>> getAllAppointmentWithPatientDentist(){
         List<Appointment>appointment = this.appointmentService.getAllAppointment();
@@ -81,9 +82,39 @@ public class AppointmentController {
         return ResponseEntity.ok(appointmentDTOS);
     }
 
-    @GetMapping("/doctor/patient/branch/list")
-    public ResponseEntity<List<AppointmentDTO>> getAllAppointmentWithPatientDentistBranch(){
+    @GetMapping("/list")
+    public ResponseEntity<List<AppointmentDTO>> getAllAppointment1(){
         List<Appointment>appointment = this.appointmentService.getAllAppointment();
+        List<AppointmentDTO> appointmentDTOS = appointment.stream()
+                .map(appointment1 -> modelMapper.map(appointment1, AppointmentDTO.class))
+                .map(appointmentDTO -> {
+                    appointmentDTO.setDentistDTO(dentistFeignClient.getDentistData(appointmentDTO.getDentistId()));
+                    appointmentDTO.setPatientDTO(patientFeignClient.getPatientData(appointmentDTO.getPatientId()));
+                    appointmentDTO.setBranchDTO(branchFeignClient.getBranchData(appointmentDTO.getBranchId()));
+                    return appointmentDTO;
+                })
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(appointmentDTOS);
+    }
+
+    @GetMapping("/list/dentist/{dentistId}")
+    public ResponseEntity<List<AppointmentDTO>> getAllDentistAppointment(@PathVariable("dentistId") long dentistId){
+        List<Appointment>appointment = this.appointmentService.getAllDoctorAppointment(dentistId);
+        List<AppointmentDTO> appointmentDTOS = appointment.stream()
+                .map(appointment1 -> modelMapper.map(appointment1, AppointmentDTO.class))
+                .map(appointmentDTO -> {
+                    appointmentDTO.setDentistDTO(dentistFeignClient.getDentistData(appointmentDTO.getDentistId()));
+                    appointmentDTO.setPatientDTO(patientFeignClient.getPatientData(appointmentDTO.getPatientId()));
+                    appointmentDTO.setBranchDTO(branchFeignClient.getBranchData(appointmentDTO.getBranchId()));
+                    return appointmentDTO;
+                })
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(appointmentDTOS);
+    }
+
+    @GetMapping("/list/patient/{patientId}")
+    public ResponseEntity<List<AppointmentDTO>> getAllPatientAppointment(@PathVariable("patientId") long patientId){
+        List<Appointment>appointment = this.appointmentService.getAllPatientAppointment(patientId);
         List<AppointmentDTO> appointmentDTOS = appointment.stream()
                 .map(appointment1 -> modelMapper.map(appointment1, AppointmentDTO.class))
                 .map(appointmentDTO -> {

@@ -27,5 +27,5 @@ public class UserDTO{
     private String email;
     private Long roleId;
     private String roleName;
-
+    private int whomId;
 }

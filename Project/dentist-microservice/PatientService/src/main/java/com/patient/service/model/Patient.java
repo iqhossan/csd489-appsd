@@ -29,4 +29,14 @@ public class Patient {
     @JsonIgnore
     private List<AppointmentRequest> appointmentRequestList;
 
+
+    public Patient(Long patientId, String firstName, String lastName, String phoneNo, String email, double dues, Long addressId) {
+        this.patientId = patientId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNo = phoneNo;
+        this.email = email;
+        this.dues = dues;
+        this.addressId = addressId;
+    }
 }

@@ -30,6 +30,11 @@ import { ViewAppiontmentComponent } from './pages/appointment/view-appiontment/v
 import { AddAppiontmentComponent } from './pages/appointment/add-appiontment/add-appiontment.component';
 import { EditAppiontmentComponent } from './pages/appointment/edit-appiontment/edit-appiontment.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ViewUserComponent } from './pages/user/view-user/view-user.component';
+import { AddUserComponent } from './pages/user/add-user/add-user.component';
+import { EditUserComponent } from './pages/user/edit-user/edit-user.component';
+import { PatientDashboardComponent } from './pages/patient-dashboard/patient-dashboard.component';
+import { DentistDashboardComponent } from './pages/dentist-dashboard/dentist-dashboard.component';
 
 
 @NgModule({
@@ -56,7 +61,12 @@ import { NgSelectModule } from '@ng-select/ng-select';
     EditPatientComponent,
     ViewAppiontmentComponent,
     AddAppiontmentComponent,
-    EditAppiontmentComponent 
+    EditAppiontmentComponent,
+    ViewUserComponent,
+    AddUserComponent,
+    EditUserComponent,
+    PatientDashboardComponent,
+    DentistDashboardComponent 
     
   ],
   imports: [

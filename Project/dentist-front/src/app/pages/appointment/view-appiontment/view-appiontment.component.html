@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header"> 
                 <h4>List Of Appointment
-                    <a routerLink="/view-patient" class="btn btn-primary float-end">New Appointment</a>
+                    <!-- <a routerLink="/view-appointment" class="btn btn-primary float-end">New Appointment</a> -->
                 </h4>
             </div>
             <div class="card-body">
@@ -24,14 +24,14 @@
                             </tr> 
                         </thead> 
                         <tbody>
-                            <tr *ngFor="let appointment of appointments">
+                            <tr *ngFor="let appointment of appointments"> 
                                 <td>{{appointment.appointmentId}}</td>
                                 <td>{{appointment.appointmentDate}}</td>
                                 <td>{{appointment.appointmentTime}}</td>
                                 <td>{{appointment.patientDTO.firstName}} {{appointment.patientDTO.lastName}}</td> 
                                 <td>{{appointment.dentistDTO.firstName}} {{appointment.dentistDTO.lastName}}</td> 
-                                <td>{{appointment.branchDTO.branchName}}</td> 
-                                <td>
+                                <td>{{appointment.branchDTO.branchName}}</td>  
+                                <td *ngIf="role==='ADMIN'">
                                     <a routerLink="/edit-appointment/{{appointment.appointmentId}}" class="btn btn-success mx-2">Edit</a> 
                                     <button type="button" (click)="deleteDentist($event,appointment.appointmentId)" class="btn btn-danger">Delete</button>
                                 </td>

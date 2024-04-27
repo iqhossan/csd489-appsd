@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Patient } from '../../../model/patient';
 import { PatientService } from '../../../service/patient.service';
 import Swal from 'sweetalert2';
+import { LoginService } from '../../../service/login.service';
 
 @Component({
   selector: 'app-view-patient',
@@ -15,11 +16,14 @@ export class ViewPatientComponent implements OnInit {
   private patientdata:Patient[];
 
   isLoading:Boolean = false;
-
-  constructor(private patientService:PatientService){}
+  role=null;
+  constructor(private patientService:PatientService,
+    private login:LoginService
+  ){}
 
   ngOnInit(): void {
     this.getPatientList();
+    this.role = this.login.getUserRole();
   }
 
   setPage( i, event:any){

@@ -18,6 +18,10 @@ import { EditPatientComponent } from './pages/patient/edit-patient/edit-patient.
 import { AddAppiontmentComponent } from './pages/appointment/add-appiontment/add-appiontment.component';
 import { EditAppiontmentComponent } from './pages/appointment/edit-appiontment/edit-appiontment.component';
 import { ViewAppiontmentComponent } from './pages/appointment/view-appiontment/view-appiontment.component';
+import { ViewUserComponent } from './pages/user/view-user/view-user.component';
+import { AddUserComponent } from './pages/user/add-user/add-user.component';
+import { PatientDashboardComponent } from './pages/patient-dashboard/patient-dashboard.component';
+import { DentistDashboardComponent } from './pages/dentist-dashboard/dentist-dashboard.component';
 
 const routes: Routes = [
   {
@@ -50,6 +54,18 @@ const routes: Routes = [
         component:ViewAppiontmentComponent,
       },
     ],
+  },
+
+  {
+    path:'patient',
+    component:PatientDashboardComponent,
+    pathMatch:'full',
+  },
+
+  {
+    path:'dentist', 
+    component:DentistDashboardComponent,
+    pathMatch:'full',
   },
 
   // start surgery location
@@ -129,6 +145,20 @@ const routes: Routes = [
   {
     path:'view-appointment',
     component:ViewAppiontmentComponent,
+    pathMatch:'full',
+  },
+
+  // Start user-------------
+
+  {
+    path:'view-user',
+    component:ViewUserComponent,
+    pathMatch:'full',
+  },
+
+  {
+    path:'add-user',
+    component:AddUserComponent,
     pathMatch:'full',
   },
 

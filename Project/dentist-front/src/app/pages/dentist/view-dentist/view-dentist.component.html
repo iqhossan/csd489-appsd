@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header"> 
                 <h4>List Of Dentist
-                    <a routerLink="/add-dentist" class="btn btn-primary float-end">Register Dentist</a>
+                    <a  *ngIf="role==='ADMIN'" routerLink="/add-dentist" class="btn btn-primary float-end">Register Dentist</a>
                 </h4>
             </div>
             <div class="card-body">
@@ -32,8 +32,9 @@
                                 <td>{{data.phoneNumber}}</td>
                                 <td>{{data.email}}</td>
                                 <td>{{data.specialization}}</td>
-                                <td>{{data.maxAppointment}}</td> 
-                                <td>
+                                <td>{{data.maxAppointment}}</td>
+                                 
+                                <td *ngIf="role==='ADMIN'">
                                     <a routerLink="/edit-dentist/{{data.dentistId}}" class="btn btn-success mx-2">Edit</a> 
                                     <button type="button" (click)="deleteDentist($event,data.dentistId)" class="btn btn-danger">Delete</button>
                                 </td>

@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header"> 
                 <h4>List Of Patient
-                    <a routerLink="/add-patient" class="btn btn-primary float-end">Patient Enrollment</a>
+                    <a *ngIf="role==='ADMIN'" routerLink="/add-patient" class="btn btn-primary float-end">Patient Enrollment</a>
                 </h4>
             </div>
             <div class="card-body">
@@ -29,6 +29,7 @@
                                 </tr> 
                             </thead> 
                             <tbody>
+                               
                                 <tr *ngFor="let data of patientdata">
                                     <td>{{data.patientId}}</td>
                                     <td>{{data.firstName}}</td>
@@ -40,7 +41,7 @@
                                     <td>{{data.address.state}}</td>
                                     <td>{{data.address.zipcode}}</td>
                                     <td>{{data.dues}}</td> 
-                                    <td>
+                                    <td *ngIf="role==='ADMIN'">
                                         <div class="btn-group" role="group">
                                             <a routerLink="/edit-patient/{{data.patientId}}/{{data.address.addressId}}" class="btn btn-success mr-2">Edit</a> 
                                             <button type="button" (click)="deletePatient($event, data.patientId)" class="btn btn-danger mr-2">Delete</button>
@@ -48,6 +49,8 @@
                                         </div>  
                                     </td>
                                 </tr>
+
+
                             </tbody>
                         </table>  
                     </div>

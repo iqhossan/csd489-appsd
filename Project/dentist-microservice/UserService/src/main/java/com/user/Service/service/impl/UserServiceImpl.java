@@ -7,9 +7,11 @@ import com.user.Service.repo.RoleRepository;
 import com.user.Service.repo.UserRepository;
 import com.user.Service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -52,4 +54,10 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long userId){
         this.userRepository.deleteById(userId);
     }
+
+    @Override
+    public List<User> getAllUsers() {
+        return this.userRepository.findAll(Sort.by("id").descending());
+    }
+
 }

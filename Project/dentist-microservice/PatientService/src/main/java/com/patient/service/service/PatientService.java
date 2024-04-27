@@ -10,6 +10,7 @@ public interface PatientService {
     Patient addPatient(Patient patient);
     Patient updatePatient(Patient patient);
     List<Patient> getPatients(Integer pageNumber, Integer pageSize);
+    List<Patient> getPatientsExcludePagination();
     Patient getPatient(Long patientId) throws Exception;
     void deletePatient(Long patientId);
 

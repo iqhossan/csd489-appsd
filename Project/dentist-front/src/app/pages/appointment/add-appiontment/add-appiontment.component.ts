@@ -18,7 +18,6 @@ import { Surgery } from '../../../model/surgery';
 })
 export class AddAppiontmentComponent {
 
-
   appointmentDate!:Date;
   appointmentTime!:Time;
   dentistId!:number;

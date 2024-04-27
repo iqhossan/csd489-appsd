@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -43,10 +44,17 @@ public class UserController {
         user.setUsername(userDTO.getUsername());
         user.setPassword(this.bCryptPasswordEncoder.encode(userDTO.getPassword()));
         user.setEmail(userDTO.getEmail());
+        user.setWhomId(userDTO.getWhomId());
 
         Role role =new Role();
         role.setRoleId(userDTO.getRoleId());
-        role.setRoleName(userDTO.getRoleName());
+        if(userDTO.getRoleId() == 44){
+            role.setRoleName("PATIENT");
+        }else if(userDTO.getRoleId() == 43){
+            role.setRoleName("DENTIST");
+        }else {
+            role.setRoleName("ADMIN");
+        }
 
         UserRole userRole = new UserRole();
         userRole.setUser(user);
@@ -55,6 +63,12 @@ public class UserController {
         Set<UserRole> roles = new HashSet<>();
         roles.add(userRole);
         return this.userService.createUser(user,roles);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<User>> getAllUsers(){
+        List<User> user = this.userService.getAllUsers();
+        return ResponseEntity.ok(user);
     }
 
     @GetMapping("/{username}")

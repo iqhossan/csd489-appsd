@@ -45,7 +45,7 @@ public class UserServiceApplication implements CommandLineRunner {
 			user.setEmail("admin@gmail.com");
 
 			Role role1 = new Role();
-			role1.setRoleId(44L);
+			role1.setRoleId(45L);
 			role1.setRoleName("ADMIN");
 
 			Set<UserRole> userRoleSet = new HashSet<>();

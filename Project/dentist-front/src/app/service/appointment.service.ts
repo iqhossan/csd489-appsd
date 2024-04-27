@@ -53,8 +53,22 @@ export class AppointmentService {
   }
 
    // load all apointments along with doctors , pateint and Branch information
-   public getAllAppointmentWithPatientDentistBranch():Observable<Appointment[]>{
+   public aagetAllAppointmentWithPatientDentistBranch():Observable<Appointment[]>{
     return this._http.get<Appointment[]>(`${this.baseUrl}/appointment/doctor/patient/branch/list`);
   }
   
+   // load all apointments information
+   public getAllAppointmentExceludePage():Observable<Appointment[]>{
+    return this._http.get<Appointment[]>(`${this.baseUrl}/appointment/list`);
+  }
+
+  // load all apointments of doctors information
+  public getAllDoctorAppointment(dentistId:number):Observable<Appointment[]>{
+    return this._http.get<Appointment[]>(`${this.baseUrl}/appointment/list/dentist/${dentistId}`);
+  }
+
+  // load all apointments of patient information
+  public getAllPatientAppointment(patientId:number):Observable<Appointment[]>{
+    return this._http.get<Appointment[]>(`${this.baseUrl}/appointment/list/patient/${patientId}`);
+  }
 }

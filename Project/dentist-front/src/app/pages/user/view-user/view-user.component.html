@@ -1,0 +1,51 @@
+<div>
+    <div class="mt-5 container">
+        <div class="card">
+            <div class="card-header"> 
+                <h4>List Of Dentist
+                    <a routerLink="/add-user" class="btn btn-primary float-end">Add New User</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <div *ngIf="isLoading; else elseTableBlock">
+                    <app-loader></app-loader>
+                </div>
+                <ng-template #elseTableBlock>
+                    <table class="table table-striped table-bordered"> 
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>User Number</th>
+                                <th>Email</th>
+                                <th>Role</th> 
+                                <th>Action</th>
+                            </tr> 
+                        </thead>  
+                    
+                        <tbody>
+                            <tr *ngFor="let data of userdata">
+                                <td>{{data.id}}</td>
+                                <td>{{data.firstname}}</td>
+                                <td>{{data.lastname}}</td> 
+                                <td>{{data.username}}</td>
+                                <td>{{data.email}}</td>  
+                                <td>
+                                    <span *ngFor="let authority of data.authorities">
+                                        {{ authority.authority }}
+                                        <span *ngIf="!last">{{ ',' }}</span> <!-- Add a comma unless it's the last authority -->
+                                    </span>
+                                </td> 
+                                <td>
+                                    <!-- <a routerLink="/edit-user/{{data.id}}" class="btn btn-success mx-2">Edit</a>  -->
+                                    <button type="button" (click)="deleteUser($event,data.id)" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>  
+                </ng-template>
+            </div> 
+        </div>
+    </div>
+</div>

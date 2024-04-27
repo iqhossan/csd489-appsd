@@ -52,6 +52,20 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public List<Patient> getPatientsExcludePagination() {
+        try {
+            List<Patient> allPatient = this.patientRepository.findAll();
+            // Log essential patient information without causing recursion
+            allPatient.forEach(p -> logger.info("Fetched patient - ID: " + p.getPatientId() + ", Name: " + p.getFirstName() + " " + p.getLastName()));
+            return allPatient;
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error fetching patients: " + e.getMessage(), e);
+            throw new RuntimeException("Error fetching patients");
+        }
+    }
+
+
+    @Override
     public Patient getPatient(Long patientId) throws Exception {
         Patient patient = this.patientRepository.findById(patientId).get();
         if(patient == null){

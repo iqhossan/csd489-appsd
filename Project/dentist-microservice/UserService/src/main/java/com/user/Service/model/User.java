@@ -23,7 +23,7 @@ public class User implements UserDetails {
     private String lastname;
     private String email;
     private boolean enabled = true;
-
+    private int whomId;
     // user has many roles
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
     @JsonIgnore
@@ -136,4 +136,11 @@ public class User implements UserDetails {
     }
 
 
+    public int getWhomId() {
+        return whomId;
+    }
+
+    public void setWhomId(int whomId) {
+        this.whomId = whomId;
+    }
 }

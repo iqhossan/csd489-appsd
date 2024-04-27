@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="mt-5 container">
+        <div class="card">
+            <div class="card-header">
+                <h4>
+                    Add :: User Entry Form
+                    <a routerLink="/view-user" class="btn btn-danger">Back</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <div *ngIf="isLoading; else elseForm">
+                    <app-loader :title="loadingTitle"></app-loader>
+                </div>
+                <ng-template #elseForm>
+                    <form (ngSubmit)="saveUser()">
+
+                        <div class="mb-12">
+                            <div class="form-group row"> 
+                                <div class="col-sm-6">
+                                    <label class="col-sm-4 col-form-label">First Name</label>
+                                    <input type="text" [(ngModel)]="firstname" name="firstname" class="form-control" required />
+                                    <span *ngIf="errors.firstname" class="text-danger">{{errors.firstname}}</span> 
+                                </div>  
+                                <div class="col-sm-6">
+                                    <label class="col-sm-4 col-form-label">Last Name</label>
+                                    <input type="text" [(ngModel)]="lastname" name="lastname" class="form-control" required/> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-12">
+                            <div class="form-group row"> 
+                                <div class="col-sm-6">
+                                    <label class="col-sm-4 col-form-label">User Name</label>
+                                    <input type="text" [(ngModel)]="username" name="username" class="form-control" required />
+                                    <span *ngIf="errors.username" class="text-danger">{{errors.username}}</span> 
+                                </div>  
+                                <div class="col-sm-6">
+                                    <label class="col-sm-4 col-form-label">Passowrd</label>
+                                    <input type="text" [(ngModel)]="password" name="password" class="form-control" required/> 
+                                </div>
+                            </div>
+                        </div>
+                         
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" [(ngModel)]="email" name="email" class="form-control" />
+                            <span *ngIf="errors.email" class="text-danger">{{errors.email}}</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Role</label> 
+                            <ng-select [(ngModel)]="selectedRole" name="roleId" (change) = "itemSelected($event)">
+                                <ng-option [value]="-1" selected>Select Role</ng-option>
+                                <ng-option *ngFor="let role of roles" 
+                                    [value]="role.roleId">{{role.name}}
+                                </ng-option>
+                            </ng-select>   
+                        </div>
+
+                        <div class="mb-3" *ngIf="selectedRole === 44">
+                            <label>Patient</label> 
+                            <ng-select [(ngModel)]="selectedPatient" name="patientId" (change) = "itemSelected($event)">
+                                <ng-option [value]="-1" selected>Select Dentist</ng-option>
+                                <ng-option *ngFor="let patient of patients" 
+                                    [value]="patient.patientId">{{patient.firstName}}-{{patient.lastName}}
+                                </ng-option>
+                            </ng-select>  
+                        </div> 
+
+                        <div class="mb-3" *ngIf="selectedRole === 43">
+                            <label>Dentist</label> 
+                            <ng-select [(ngModel)]="selectedDentist" name="dentistId" (change) = "itemSelected($event)">
+                                <ng-option [value]="-1" selected>Select Dentist</ng-option>
+                                <ng-option *ngFor="let dentist of dentists" 
+                                    [value]="dentist.dentistId">{{dentist.firstName}}-{{dentist.lastName}}
+                                </ng-option>
+                            </ng-select>  
+                        </div> 
+
+
+                        <div class="mb-3"> 
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

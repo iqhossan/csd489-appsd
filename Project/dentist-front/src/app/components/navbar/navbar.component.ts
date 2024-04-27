@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   isLoggedIn = false;
+  whomid = 0;
   user = null;
   role = null;
   constructor(public login:LoginService,
@@ -16,12 +17,16 @@ export class NavbarComponent {
     
   ngOnInit(): void {
     this.isLoggedIn = this.login.isLoggedIn();
-    this.user = this.login.getUser();
+    this.user = this.login.getUser(); 
+    this.role = this.login.getUserRole();
+    this.whomid = this.login.getUserWhomId();
     this.login.loginStatusSubject.asObservable().subscribe((data)=>{
       this.isLoggedIn = this.login.isLoggedIn();
       this.user = this.login.getUser();
       this.role = this.login.getUserRole();
-      console.log(this.user);
+      this.whomid = this.login.getUserWhomId();
+      //alert(this.whomid);
+      //console.log(this.user);
     });
   }
 

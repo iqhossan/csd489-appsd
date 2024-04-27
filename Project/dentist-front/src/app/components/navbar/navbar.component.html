@@ -6,20 +6,24 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-
+      <ul class="navbar-nav mr-auto"> 
         <li class="nav-item">
           <a *ngIf = "isLoggedIn" class="nav-link" href="/view-patient">Patient</a>
         </li>
         <li class="nav-item">
-          <a *ngIf = "isLoggedIn" class="nav-link" href="/view-dentist">Dentist</a>
+          <a *ngIf = "isLoggedIn &&  (role==='ADMIN' || role==='PATIENT')" class="nav-link" href="/view-dentist">Dentist</a>
         </li>
         <li class="nav-item">
-          <a *ngIf = "isLoggedIn" class="nav-link" routerLink="/admin/appointment">Appointment</a>
+          <a *ngIf = "isLoggedIn" class="nav-link" routerLink="/view-appointment">Appointment</a>
         </li>
         <li class="nav-item">
-          <a *ngIf = "isLoggedIn" class="nav-link" routerLink="/view-surgery">Sugery</a>
+          <a *ngIf = "isLoggedIn && role==='ADMIN'" class="nav-link" routerLink="/view-surgery">Sugery</a>
         </li>
+
+        <li class="nav-item">
+          <a *ngIf = "isLoggedIn && role==='ADMIN'" class="nav-link" routerLink="/view-user">User</a>
+        </li>
+
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Report
@@ -34,11 +38,12 @@
         
       </ul>
       
+
         <div class="mx-2">
-            <button style="margin: 5px;"class="btn btn-info" data-toggle="modal" data-target="#loginModal"><a style="color:white;" href="javascript:void(0);" routerLink="/login">Login</a></button>      
-            <button style="margin: 5px;" class="btn btn-info" data-toggle="modal" data-target="#loginModal"><a style="color: white;" href="javascript:void(0);" routerLink="/booking">Booking Appointment</a></button> 
-            <button *ngIf = "isLoggedIn" style="margin: 5px;" class="btn btn-info" data-toggle="modal" data-target="#loginModal">
-              <a style="color: white;" href="javascript:void(0);" (click)="logout()">Logout</a></button>    
+            <button *ngIf = "!isLoggedIn" style="margin: 5px;"class="btn btn-info" data-toggle="modal" data-target="#loginModal"><a style="color:white;" href="javascript:void(0);" routerLink="/login">Login</a></button>      
+            <!-- <button style="margin: 5px;" class="btn btn-info" data-toggle="modal" data-target="#loginModal"><a style="color: white;" href="javascript:void(0);" routerLink="/booking">Booking Appointment</a></button>  -->
+            <button *ngIf="isLoggedIn" style="margin: 5px;" class="btn btn-info" data-toggle="modal" data-target="#loginModal">
+              <a style="color: white;" href="javascript:void(0);" (click)="logout()">Logout (as a {{role}})</a></button>    
         </div>
     </div>
 </nav>

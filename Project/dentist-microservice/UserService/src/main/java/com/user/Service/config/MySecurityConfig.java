@@ -53,6 +53,7 @@ public class MySecurityConfig {
                             auth
                                     .requestMatchers("/auth/generate-token").permitAll()
                                     .requestMatchers("/user/").permitAll()
+                                    .requestMatchers("/user/*").permitAll()
                                     .requestMatchers("/auth/current-user").permitAll()
                                     .requestMatchers("/user/register").permitAll();
                         }

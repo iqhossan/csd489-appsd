@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DentistService } from '../../../service/dentist.service';
 import { Dentist } from '../../../model/dentist';
 import Swal from 'sweetalert2';
+import { LoginService } from '../../../service/login.service';
 
 @Component({
   selector: 'app-view-dentist',
@@ -15,11 +16,14 @@ export class ViewDentistComponent implements OnInit {
   private dentistdata:Dentist[];
 
   isLoading:Boolean = false;
-
-  constructor(private dentistService:DentistService){}
+  role = null;
+  constructor(private dentistService:DentistService,
+    private login:LoginService
+  ){}
 
   ngOnInit(): void {
     this.getDentistList();
+    this.role = this.login.getUserRole();
   }
 
   setPage( i, event:any){

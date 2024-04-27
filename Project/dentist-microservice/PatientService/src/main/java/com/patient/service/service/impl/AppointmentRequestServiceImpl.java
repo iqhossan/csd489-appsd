@@ -23,17 +23,17 @@ public class AppointmentRequestServiceImpl implements AppointmentRequestService 
     @Override
     public AppointmentRequest addAppointmentReq(AppointmentRequest appointmentRequest) {
 
-        Long patientId = appointmentRequest.getPatient().getPatientId();
-        if (patientId != null) {
-            // Fetch patient data from the database
-            Patient patient = patientRepository.findById(patientId).orElse(null);
-            if (patient != null) {
-                // Set the fetched patient object in the appointment request
-                appointmentRequest.setPatient(patient);
-                // Save the appointment request
-                return appointmentRequestRepository.save(appointmentRequest);
-            }
-        }
+//        Long patientId = appointmentRequest.getPatient().getPatientId();
+//        if (patientId != null) {
+//            // Fetch patient data from the database
+//            Patient patient = patientRepository.findById(patientId).orElse(null);
+//            if (patient != null) {
+//                // Set the fetched patient object in the appointment request
+//                appointmentRequest.setPatient(patient);
+//                // Save the appointment request
+//                return appointmentRequestRepository.save(appointmentRequest);
+//            }
+//        }
         return null;
     }
 

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.loginService.getCurrentUser().subscribe(
           (user:any)=>{
             this.loginService.setUser(user);
-             console.log(user); 
+             //console.log(user); 
              if(this.loginService.getUserRole() == 'ADMIN'){
               //ridirect  ...ADMIN dashboard
               //window.location.href="/admin";
@@ -39,11 +39,11 @@ export class LoginComponent implements OnInit {
             }else if(this.loginService.getUserRole() == 'PATIENT'){
               //ridirect ...NORMAL dashboard
               //window.location.href="/user-dashboard";
-              this.router.navigate(['user-dashboard/0']);
+              this.router.navigate(['patient']);
               this.loginService.loginStatusSubject.next(true);
-            }else if(this.loginService.getUserRole() == 'DOCTOR'){
+            }else if(this.loginService.getUserRole() == 'DENTIST'){
               //ridirect ...NORMAL dashboard 
-              this.router.navigate(['user-dashboard/0']);
+              this.router.navigate(['dentist']);
               this.loginService.loginStatusSubject.next(true);
             }else{
               this.loginService.logout();
